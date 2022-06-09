@@ -1,0 +1,63 @@
+{
+  "Aggregates": [
+    {
+      "UpstreamPathTemplate": "/api/usersPosts",
+      "RouteKeys": [ "users", "posts" ],
+      "Aggregator": "UsersPostsAggregator"
+    }
+  ],
+
+  "Routes": [
+    // API externa de Users y Posts (Prueba)
+    {
+      "UpstreamPathTemplate": "/api/users", // Como lo expone el API Gateway (el que llamaremos)
+      "UpstreamHttpMethod": [ "GET" ], // Método
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "jsonplaceholder.typicode.com",
+          "Port": 443
+        }
+      ],
+      "DownstreamScheme": "https", // Protocolo http o https
+      "DownstreamPathTemplate": "/users", // El API Gateway llama al "DownstreamScheme://Host/DownstreamPathTemplate", en este caso sería https://jsonplaceholder.typicode.com/users
+      "Key": "users"
+    },
+    {
+      "UpstreamPathTemplate": "/api/posts",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "jsonplaceholder.typicode.com",
+          "Port": 443
+        }
+      ],
+      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/posts",
+      "Key": "posts"
+    },
+
+    // API de weatherforecast
+    {
+      "UpstreamPathTemplate": "/api/registerCitizen",
+      "UpstreamHttpMethod": [ "GET" ],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9090
+        }
+      ],
+      "DownstreamScheme": "http",
+      "DownstreamPathTemplate": "/weatherforecast"
+    }
+  ],
+
+
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:1111",
+
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": 9500
+    }
+  }
+}

@@ -22,8 +22,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "SENDGRID_API_KEY": "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",
-        "FIREBASE_SECRET": "kTTjuuwrVgrnQBpkM27JkzoPunKf5mGG0NQXDQsX",
+        "SENDGRID_API_KEY": "SG.hve7w...",
+        "FIREBASE_SECRET": "kTTjuu...",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:9092"
@@ -33,7 +33,7 @@
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/weatherforecast",
       "environmentVariables": {
-        "SENDGRID_API_KEY": "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"
+        "SENDGRID_API_KEY": "SG.LRyMCd..."
       },
       "publishAllPorts": true,
       "useSSL": true
